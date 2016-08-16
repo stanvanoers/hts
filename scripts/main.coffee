@@ -1,7 +1,9 @@
-welcomeMessage = require("./../structure/templates/welcomeMessageTemplate.pug")
-welcomeMessageContainer = document.querySelector "[welcomeMessage]"
-welcomeMessageContainer.innerHTML = welcomeMessage({yourName: "Stan"})
+# Dependencies
+_ = require "underscore"
+$ = require "jquery"
+base = require "backbone"
+stats = require "mixpanel"
 
-setTimeout ->
-  welcomeMessageContainer.classList.add "active"
-, 300
+# Add browser class
+platform = require "./CheckPlatform.coffee"
+$("body").addClass platform()
